@@ -16,13 +16,13 @@ function guess() {
     switch (getResults(input.value)) {
       case true:
         setMessage('You Win! :)');
-        showAnswer();
+        showAnswer(true);
         showReplay();
         break;
      case false:
         if(attempt.value >= 10) {
           setMessage('You Lose! :(');
-          showAnswer();
+          showAnswer(false);
           showReplay();
           break;
         }
@@ -41,7 +41,8 @@ function setHiddenFields() {
 }
 
 function setMessage(message) {
-  document.getElementById('message').innerHTML = message;
+  document.getElementById('message').style.visibility = 'visible';
+  document.getElementById('message').innerHTML = '<span class="glyphicon glyphicon-info-sign"></span>'+' '+message;
 }
 
 function validateInput(input) {
@@ -55,7 +56,8 @@ function validateInput(input) {
 }
 
 function getResults(input) {
-  var row = '<div class="row"><span class="col-md-6">'+input+'</span><div class="col-md-6">';
+  document.getElementById('results').style.visibility = 'visible';
+  var row = '<div class="row"><span class="col-md-4">'+attempt.value+'.</span><span class="col-md-4">'+input+'</span><div class="col-md-4">';
   var correctCount = 0;
   console.log(answer.value);
   for (var i = 0; i < input.length; i++) {
@@ -82,10 +84,12 @@ function getResults(input) {
 function showAnswer(input) {
   document.getElementById('code').innerHTML = answer.value;
   if(input) {
-    document.getElementById('code').className = ' success';
+    document.getElementById('code').innerHTML += ' <span class="glyphicon glyphicon-check"></span>';
+    document.getElementById('code').className += ' success';
   }
   else {
-    document.getElementById('code').className = ' failure';
+    document.getElementById('code').innerHTML += ' <span class="glyphicon glyphicon-remove-sign"></span>';
+    document.getElementById('code').className += ' failure';
   }
 }
 
