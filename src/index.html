@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="col-md-6 col-xs-12">
+      <div id="borderShadow"class="col-md-6 col-xs-12">
         <h1>Code Breaker</h1>
         <div class="row">
           <p id="code" class="code">
@@ -19,14 +19,14 @@
         </div>
 
         <div class="row">
-          <p id="message" class="message">Message</p>
+          <p id="message" class="message alert alert-info col-md-10 col-xs-10">Message</p>
         </div>
 
         <div id="guessing-div" class="row form-inline">
           <input type="hidden" id="attempt"/>
           <input type="hidden" id="answer"/>
           <input id="user-guess" class="form-control" type="number" />
-          <button class="btn btn-primary" onclick="guess()">Submit Guess</button>
+          <button id="btn" class="btn btn-primary" onclick="guess()">Submit Guess</button>
         </div>
 
         <div id="replay-div" class="row" style="display:none">
@@ -35,7 +35,7 @@
 
         <div class="row" id="results">
           <div class="row">
-            <strong class="col-md-4">#</strong>
+            <strong class="glyphicon glyphicon-triangle-bottom col-md-4"></strong>
             <strong class="col-md-4">Guess</strong>
             <strong class="col-md-4">Result</strong>
           </div>
@@ -43,7 +43,7 @@
 
       </div>
 
-      <div class="col-md-6 col-xs-12">
+      <div id="text-white" class="col-md-6 col-xs-12">
         <h2>Objective:</h2>
         <p class="lead">Break the 4 digit code.</p>
 

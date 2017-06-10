@@ -59,7 +59,6 @@ function getResults(input) {
   document.getElementById('results').style.visibility = 'visible';
   var row = '<div class="row"><span class="col-md-4">'+attempt.value+'.</span><span class="col-md-4">'+input+'</span><div class="col-md-4">';
   var correctCount = 0;
-  console.log(answer.value);
   for (var i = 0; i < input.length; i++) {
     if(input[i] === answer.value[i]) {
       row += '<span class="glyphicon glyphicon-ok"></span>'
@@ -97,3 +96,10 @@ function showReplay() {
   document.getElementById('guessing-div').style.display = 'none';
   document.getElementById('replay-div').style.display = 'block';
 }
+
+document.getElementById('user-guess').addEventListener('keyup', function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        document.getElementById('btn').click();
+    }
+});
